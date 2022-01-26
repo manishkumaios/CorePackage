@@ -11,6 +11,7 @@ import NetworkPackage
 
 public protocol CorePackageDataManaging {
     var shouldUseOwnNetworkInterface: Bool { get }
+    var shouldUseExternalImageDownloader: Bool { get }
 }
 
 public class NetworkApiProvider: NetworkApiManaging {
