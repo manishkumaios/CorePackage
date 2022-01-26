@@ -51,8 +51,8 @@ public class NetworkApiProvider: NetworkApiManaging {
         }
     }
     
-   public func downloadAndCacheImages(url: String, params: [String : Any], callback:  @escaping (Data?, ApiStatus) -> UIImage?) {
-        
+   public func downloadAndCacheImages(url: String, params: [String: Any], callback:  @escaping (Data?, ApiStatus) -> Void?) {
+      
     }
 }
 
