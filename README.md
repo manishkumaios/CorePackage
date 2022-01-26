@@ -6,4 +6,6 @@ Core Package will provide interface for Api interfaces
 # Concreate class - NetworkApiProvider   
 Concreate class for  NetworkApiManaging needs a dependency injection CorePackageDataManaging as data source from host app
 
+#ApiDecoding - Json Parsing wrapper
+
 

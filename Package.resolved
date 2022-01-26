@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "NetworkPackage",
+        "repositoryURL": "https://github.com/manishkumaios/NetworkPackage",
+        "state": {
+          "branch": "main",
+          "revision": "502b3788834a8a67863cde562768646aa2889c5a",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -11,10 +11,16 @@ import UIKit
 @frozen
 public enum ApiStatus {
     case success
-    case error(Error)
+    case error(ApiError)
+}
+
+@frozen
+public enum ApiError: Error {
+    case unexpected
+    case api
 }
 
 protocol NetworkApiManaging {
-    func getAPiResponse<T: Codable>(url: String, params: [String: Any], callback: (Data?, ApiStatus) -> T?)
-    func downloadAndCacheImages(url: String, params: [String: Any], callback: (Data?, ApiStatus) -> UIImage?)
+    func request<T: Decodable>(url: String, params: [String : Any], callback:  @escaping (Data?, ApiStatus, T?) -> Void)
+    func downloadAndCacheImages(url: String, params: [String: Any], callback:  @escaping (Data?, ApiStatus) -> UIImage?)
 }
