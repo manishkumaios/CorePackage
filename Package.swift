@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/manishkumaios/NetworkPackage", .branch("main")),
+        .package(url: "https://github.com/manishkumaios/NetworkPackage.git", .branch("main")),
         
     ],
     targets: [

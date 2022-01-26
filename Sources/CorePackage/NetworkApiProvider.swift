@@ -51,8 +51,24 @@ public class NetworkApiProvider: NetworkApiManaging {
         }
     }
     
-   public func downloadAndCacheImages(url: String, params: [String: Any], callback:  @escaping (Data?, ApiStatus) -> Void?) {
-      
+    public func downloadImages(url: String, params: [AnyHashable: Any]?, callback:  @escaping (Data?, ApiStatus) -> Void) {
+        guard let url = URL(string: url) else {
+            callback(nil, .error(.unexpected))
+            return
+        }
+        
+        webIntegrator.downloadImage(url: url) { data, response, error in
+            guard let _ = response else {
+                callback(nil, .error(.unexpected))
+                return
+            }
+            guard let data = data else {
+                callback(nil, .error(.unexpected))
+                return
+            }
+            
+            callback(data, .success)
+        }
     }
 }
 

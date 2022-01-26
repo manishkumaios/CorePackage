@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "NetworkPackage",
-        "repositoryURL": "https://github.com/manishkumaios/NetworkPackage",
+        "repositoryURL": "https://github.com/manishkumaios/NetworkPackage.git",
         "state": {
           "branch": "main",
-          "revision": "502b3788834a8a67863cde562768646aa2889c5a",
+          "revision": "002dd83e563d8f5d1dfd1951ca52b6186a34fe75",
           "version": null
         }
       }

@@ -29,5 +29,5 @@ public enum ApiError: Error {
 
 protocol NetworkApiManaging {
     func request<T: Decodable>(url: String, params: [AnyHashable : Any]?, requestType: RequestType, callback:  @escaping (Data?, ApiStatus, T?) -> Void)
-    func downloadAndCacheImages(url: String, params: [String: Any], callback:  @escaping (Data?, ApiStatus) -> Void?)
+    func downloadImages(url: String, params: [AnyHashable: Any]?, callback:  @escaping (Data?, ApiStatus) -> Void)
 }
