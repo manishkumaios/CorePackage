@@ -29,7 +29,7 @@ public class NetworkApiProvider: NetworkApiManaging {
         return integrator
     }()
     
-    func request<T: Decodable>(url: String, params: [String : Any], callback:  @escaping (Data?, ApiStatus, T?) -> Void)  {
+    func request<T: Decodable>(url: String, params: [AnyHashable : Any]?, requestType: RequestType, callback:  @escaping (Data?, ApiStatus, T?) -> Void)  {
         guard let url = URL(string: url) else {
             callback(nil, .error(.unexpected), nil)
             return
