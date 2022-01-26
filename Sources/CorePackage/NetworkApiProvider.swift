@@ -24,9 +24,10 @@ public class NetworkApiProvider: NetworkApiManaging {
     
     private lazy var webIntegrator: WebIntegrator = {
         struct WebIntegratorDS: WebApiIntegrating {
+            var shouldUseExternalImageDownloader: Bool
             var shouldUseOwnNetworkInterface: Bool
         }
-        let integrator = WebIntegrator.init(dataSource: WebIntegratorDS.init(shouldUseOwnNetworkInterface: dataSource.shouldUseOwnNetworkInterface))
+        let integrator = WebIntegrator(dataSource: WebIntegratorDS(shouldUseExternalImageDownloader: dataSource.shouldUseExternalImageDownloader, shouldUseOwnNetworkInterface: dataSource.shouldUseOwnNetworkInterface))
         return integrator
     }()
     
