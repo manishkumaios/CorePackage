@@ -37,7 +37,7 @@ public class NetworkApiProvider: NetworkApiManaging {
             return
         }
         
-        webIntegrator.fetch(url: url) { data, response, error in
+        webIntegrator.fetch(url: url, params: params, requestType: .get, completion: { data, response, error in
             guard let response = response else {
                 callback(nil, .error(.unexpected), nil)
                 return
@@ -50,7 +50,7 @@ public class NetworkApiProvider: NetworkApiManaging {
             
             let decodedData = try? ApiDecoder().decode(from: data, type: T.self)
             callback(data, self.consolidateError(response: response), decodedData)
-        }
+        })
     }
     
     public func downloadImages(url: String, params: [AnyHashable: Any]?, callback:  @escaping (Data?, ApiStatus) -> Void) {
@@ -59,7 +59,7 @@ public class NetworkApiProvider: NetworkApiManaging {
             return
         }
         
-        webIntegrator.downloadImage(url: url) { data, response, error in
+        webIntegrator.downloadImage(url: url, params: params, requestType: .get, completion: { data, response, error in
             guard let _ = response else {
                 callback(nil, .error(.unexpected))
                 return
@@ -70,7 +70,7 @@ public class NetworkApiProvider: NetworkApiManaging {
             }
             
             callback(data, .success)
-        }
+        })
     }
 }
 
